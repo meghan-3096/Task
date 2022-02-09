@@ -8,6 +8,4 @@ class TaskDetails:
         "GEORGE": ["Convince Snape for Quidditch ground tomorrow practice", "Cook lunch"]
     }
 
-    def get_all_tasks(self):
-        pass
 

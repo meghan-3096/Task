@@ -7,6 +7,7 @@ from Tasks.TeamDashboard import TeamDashboard
 from Tasks.LeadDashboard import LeadDashboard
 from Tasks.TaskDetails import TaskDetails
 
+
 def execute_operation(option, employee):
 
     if employee.get_role() == 'Team Lead':
@@ -18,9 +19,15 @@ def execute_operation(option, employee):
             taskid -= 1
             operation.delete(member, taskid)
         elif option == 2: #Update
-            member = input('For: ')
-            task_desc = input('Enter Task: ')
-            operation.update(member, task_desc)
+            print('Choose: \n1. Add New Task \n2. Allocate Task')
+            choice = int(input('Choice: '))
+            if choice == 1:
+                task_desc = input('Enter Task: ')
+                operation.add(task_desc)
+            elif choice == 2:
+                member = input('For: ')
+                task_desc = input('Enter Task: ')
+                operation.update(task_desc)
         elif option == 3: #exit
             pass
         else:
@@ -37,19 +44,17 @@ def execute_operation(option, employee):
         else:
             print('Choice Does Not Exist')
 
-
-
 def get_data(employee):
     auth1 = Authentication(employee.get_username(), employee.get_password())
 
-    if auth1.is_authentic():
+ #   if auth1.is_authentic():
+    if auth1.is_valid():
 
         if employee.get_role() == 'Team Lead':
-            LeadTasks = LeadDashboard(employee.get_username())
-       #     LeadTasks = Dashboard(lead_dashboard)
+            LeadTasks = Dashboard(LeadDashboard(employee.get_username()))
             data = LeadTasks.view()
         elif employee.get_role() == 'Team Member':
-            MemberTasks = TeamDashboard(employee.get_username())
+            MemberTasks = Dashboard(TeamDashboard(employee.get_username()))
             data = MemberTasks.view()
     else:
         data = 'Not Authorized'
@@ -70,7 +75,6 @@ def main():
     password = input('password: ')
 
     employee = EmployeeBean(username, password)
-
     data = get_data(employee)
     if data == 'Not Authorized':
         print('Wrong Username or Password')
@@ -85,5 +89,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 

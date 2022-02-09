@@ -1,5 +1,12 @@
-# Demonstrating Encapsulation
+"""
+    Single Responsibility Principle:
+    A class should have one and only one reason to change, meaning that a class should have only one job.
 
+    EmployeeBean class deals with the operations and attributes related to user input details only
+"""
+
+
+# Demonstrating Encapsulation
 class EmployeeBean:
     __role = 'Team Member'
 

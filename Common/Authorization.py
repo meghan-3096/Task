@@ -1,6 +1,3 @@
-from Beans.EmployeeBean import EmployeeBean
-
-
 class Authorization:
 
     def __init__(self, role):
@@ -9,8 +6,8 @@ class Authorization:
     def operations_authorized(self):
 
         if self.role == 'Team Lead':
-            operations = ["delete", "update", "exit"]
+            operations = {1: "delete", 2: "update", 3: "exit"}
         else:
-            operations = ["mark done", "exit"]
+            operations = {1: "mark done", 2: "exit"}
 
         return operations

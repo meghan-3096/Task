@@ -1,0 +1,12 @@
+Snowflake
+*********
+1. Filter tasks on the basis of names
+   SELECT username, task_description FROM TASK.PUBLIC.TASKDETAILS as t join TASK.PUBLIC.DASHBOARD as d ON (t.task_id = d.task_id) WHERE username='HARRY';
+
+SQL SERVER
+***********
+# Table to store list of tasks
+    CREATE TABLE Task.dbo.TASKDETAILS (
+	task_id int IDENTITY(1,1) PRIMARY KEY,
+	task_description varchar
+);

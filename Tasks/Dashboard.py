@@ -6,9 +6,12 @@ class Dashboard:
     def delete(self, member, taskid):
         self.dashboard_operation.delete(member, taskid)
 
-    def update(self, member, taskid):
-        self.dashboard_operation.update(member, taskid)
+    def update(self, member, task_description):
+        self.dashboard_operation.update(member, task_description)
+
+    def add(self, task_description):
+        self.dashboard_operation.add(task_description)
 
     def view(self):
-        self.dashboard_operation.view()
-
+        tasks = self.dashboard_operation.view()
+        return tasks

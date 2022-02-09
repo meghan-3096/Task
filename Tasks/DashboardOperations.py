@@ -1,6 +1,10 @@
 from abc import ABC, abstractmethod
 from Tasks.TaskDetails import TaskDetails
 
+'''
+    Open-Close Principle: Objects or entities should be open for extension but closed for modification.
+'''
+
 
 # Demonstrating Abstraction
 class DashboardOperations(ABC, TaskDetails):
@@ -18,5 +22,11 @@ class DashboardOperations(ABC, TaskDetails):
     def view(self):
         pass
 
-    def update(self, member, task_description):
+    '''@abstractmethod
+    def delete_sf(self, member, task_id):
         pass
+
+    @abstractmethod
+    def view_sf(self):
+        pass
+'''
